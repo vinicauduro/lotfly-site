@@ -3,24 +3,283 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lotfly</title>
-<meta name="description" content="Lotfly: gestão para loteadora, incorporadora e imobiliária.">
-<meta name="theme-color" content="#0e4c73">
-<!-- Até a página de vendas existir, o endereço principal leva direto para o sistema -->
-<meta http-equiv="refresh" content="0; url=https://app.lotfly.com.br/">
-<link rel="canonical" href="https://app.lotfly.com.br/">
-<script>location.replace('https://app.lotfly.com.br/' + location.search + location.hash);</script>
-<style>
-  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #f1f5f9; color: #0f172a; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
-  main { text-align: center; padding: 24px; }
-  h1 { margin: 0 0 8px; color: #0e4c73; font-size: 2rem; letter-spacing: -0.02em; }
-  a { color: #0e4c73; font-weight: 600; }
-</style>
+<title>Lotfly — sistema para loteadoras e incorporadoras</title>
+<meta name="description" content="Planta do loteamento, reservas dos corretores, contratos, carteira, cobrança e fluxo de caixa num lugar só. No computador do escritório e no celular do corretor.">
+<meta name="theme-color" content="#0a2a40">
+<link rel="canonical" href="https://lotfly.com.br/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Lotfly — o loteamento visto de cima">
+<meta property="og:description" content="Sistema para loteadoras e incorporadoras: planta, reservas, contratos, carteira, cobrança e fluxo de caixa.">
+<meta property="og:image" content="https://lotfly.com.br/img/planta.webp">
+<meta property="og:type" content="website">
+<link rel="preload" href="fonts/stack-sans-headline-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/stack-sans-text.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="estilo.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-<main>
-  <h1>Lotfly</h1>
-  <p>Abrindo o sistema… Se não abrir, <a href="https://app.lotfly.com.br/">clique aqui</a>.</p>
+
+<header class="topo">
+  <a class="marca" href="#inicio" aria-label="Lotfly, início"><span class="marca__lote lote" aria-hidden="true"></span>Lotfly</a>
+  <a class="topo__entrar" href="https://app.lotfly.com.br/">Entrar</a>
+</header>
+
+<main id="inicio">
+
+  <!-- Abertura: o sistema como um arquivo de pastas, cada aba um lote -->
+  <section class="abertura" aria-labelledby="titulo">
+    <div class="abertura__texto">
+      <h1 id="titulo">Visto de cima.</h1>
+      <p class="abertura__lead">O Lotfly é o sistema da loteadora e da incorporadora: planta, reservas, contratos, carteira e cobrança no mesmo lugar, no escritório e no celular do corretor.</p>
+    </div>
+    <nav class="pastas" aria-label="O que tem no Lotfly">
+      <a class="pasta" href="#perguntas" style="--p:0"><span class="pasta__aba">Perguntas</span><span class="pasta__corpo"></span></a>
+      <a class="pasta" href="#tudo" style="--p:1"><span class="pasta__aba">Tudo que vem</span><span class="pasta__corpo"></span></a>
+      <a class="pasta" href="#financeiro" style="--p:2"><span class="pasta__aba">O financeiro</span><span class="pasta__corpo"></span></a>
+      <a class="pasta" href="#venda" style="--p:3"><span class="pasta__aba">A venda</span><span class="pasta__corpo"></span></a>
+      <div class="pasta pasta--aberta" style="--p:4">
+        <a class="pasta__aba" href="#planta">A planta</a>
+        <div class="pasta__dentro">
+          <div class="pasta__acao">
+            <a class="botao lote js-whats" href="#demonstracao" data-msg="Olá! Quero agendar uma demonstração do Lotfly.">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+              Agendar uma demonstração</a>
+            <p>Mostramos o sistema com o seu loteamento. A conversa começa no WhatsApp.</p>
+          </div>
+          <figure class="pasta__quadras lote">
+            <img src="img/planta-quadras.webp" width="1330" height="630" alt="Planta de um loteamento no Lotfly: três quadras com os lotes numerados, em verde os disponíveis, em laranja os reservados e em vermelho os vendidos.">
+          </figure>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- A planta: o simulador do corretor, em tamanho de cartaz -->
+  <section class="palco" id="planta" data-modo="parcelado" aria-labelledby="titulo-planta">
+    <div class="palco__texto">
+      <h2 id="titulo-planta" class="entra">Lote A3 <span data-palavra>em 120×</span></h2>
+      <p class="entra" style="--n:1">No celular, o corretor abre o lote, mexe nas parcelas e manda a simulação ao cliente pelo WhatsApp. Juros, entrada mínima e desconto à vista saem da sua tabela de preços.</p>
+      <p class="palco__nota entra" style="--n:2">Exemplo com a tabela de demonstração: 10% de entrada, juros de 0,80% ao mês (Price) e 6% de desconto à vista.</p>
+    </div>
+    <div class="simulador lote" data-ui>
+      <div class="simulador__lote"><span><b>Quadra A · Lote 3</b> · 411 m²</span><span>Disponível</span></div>
+      <div class="simulador__preco">R$ 184.500,00</div>
+      <label class="simulador__rotulo" for="parcelas"><span>Parcelas</span><output id="parcelasValor" for="parcelas">120×</output></label>
+      <input id="parcelas" type="range" min="1" max="120" step="1" value="120" aria-describedby="resultado">
+      <p class="simulador__resultado" id="resultado" aria-live="polite">Entrada de <b>R$ 18.450,00</b> + <b>120× R$ 2.157,75</b><small>Saldo financiado R$ 166.050,00</small></p>
+    </div>
+  </section>
+
+  <!-- O financeiro: recortes do sistema, ampliados -->
+  <section class="quadro" id="financeiro" aria-labelledby="titulo-financeiro">
+    <div class="quadro__grade">
+      <div class="peca peca--titulo entra">
+        <h2 id="titulo-financeiro">O dinheiro, parcela por parcela</h2>
+        <p>Da entrada à última parcela: o que entra, o que atrasa, o que sai e quanto vai sobrar.</p>
+      </div>
+      <div class="peca g62 f-marca entra" style="--n:1">
+        <div class="recorte r-fluxo" data-ui aria-hidden="true"><b>R$ 219,6 mil</b><span>saldo previsto em set/27</span></div>
+        <p class="peca__nome">Fluxo de caixa projetado</p>
+        <p class="peca__linha">Do saldo de hoje, mês a mês, até 24 meses à frente.</p>
+      </div>
+      <div class="peca g64 f-degrau entra">
+        <div class="recorte r-indice" data-ui aria-hidden="true">
+          <div class="lin"><span>Parcela 14/60</span><span>R$ 1.901,33</span></div>
+          <div class="lin"><span><span class="selo">IGP-M +0,42%</span></span><span>+ R$ 7,99</span></div>
+          <div class="lin lin--nova"><span>Vence 19/04/2027</span><b>R$ 1.909,32</b></div>
+        </div>
+        <p class="peca__nome">Correção por índice</p>
+        <p class="peca__linha">Cada contrato com o seu índice: IGP-M, INPC, IPCA ou CUB. A parcela já sai corrigida.</p>
+      </div>
+      <div class="peca g34 f-ambar entra" style="--n:1">
+        <div class="recorte r-teclas" data-ui aria-hidden="true"><span class="tecla lote">Gerar boletos</span><span class="tecla lote">Remessa</span><span class="tecla lote">Retorno</span></div>
+        <p class="peca__nome">Boleto e remessa</p>
+        <p class="peca__linha">Banco do Brasil, CNAB 400. O retorno do banco dá baixa nas parcelas.</p>
+      </div>
+      <div class="peca g34 f-verde entra" style="--n:2">
+        <div class="recorte r-quitar" data-ui aria-hidden="true"><small>Quitar hoje</small><b>R$ 96.412,07</b><small>em vez de R$ 114.079,80</small></div>
+        <p class="peca__nome">Antecipação e quitação</p>
+        <p class="peca__linha">Demonstrativo com o desconto dos juros que ainda não venceram.</p>
+      </div>
+      <div class="peca g32 f-vermelho entra">
+        <div class="recorte r-selo lote" data-ui aria-hidden="true">61 dias de atraso</div>
+        <p class="peca__nome">Cobrança</p>
+        <p class="peca__linha">Faixas de atraso, multa, juros e acordo.</p>
+      </div>
+      <div class="peca g32 f-degrau entra" style="--n:1">
+        <div class="recorte r-doc" data-ui aria-hidden="true"><b>RECIBO</b><br>Recebi de Pedro Santos a importância de R$ 3.455,00, referente à parcela 5/36…</div>
+        <p class="peca__nome">Recibos e extratos</p>
+        <p class="peca__linha">Com a logo da empresa.</p>
+      </div>
+      <div class="peca g32 f-branco entra" style="--n:2">
+        <div class="recorte r-parcela" data-ui aria-hidden="true"><span class="tecla lote" style="background:var(--degrau)">Parcela 3 de 12</span></div>
+        <p class="peca__nome">Contas a pagar</p>
+        <p class="peca__linha">Despesa parcelada, por empreendimento.</p>
+      </div>
+      <div class="peca g32 f-ambar entra" style="--n:3">
+        <div class="recorte r-saldo" data-ui aria-hidden="true">R$ 420.000,00</div>
+        <p class="peca__nome">Caixa e bancos</p>
+        <p class="peca__linha">Saldo de cada conta, por empresa do grupo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tudo que vem: o programa inteiro, numa medida só -->
+  <section class="programa" id="tudo" aria-labelledby="titulo-tudo">
+    <h2 id="titulo-tudo" class="so-leitor">Tudo que vem no Lotfly</h2>
+    <div class="programa__lista" role="table" aria-label="O que o Lotfly faz, para quê, quem usa e onde">
+      <div role="rowgroup">
+        <h3 class="programa__parte" role="row"><span role="columnheader">Comercial</span></h3>
+        <div class="linha" role="row" data-img="planta"><span role="cell"><span class="marcador lote"></span>Planta do loteamento</span><span role="cell">do PDF ou do DXF</span><span role="cell">escritório</span><span role="cell">computador</span></div>
+        <div class="linha" role="row" data-img="celular-planta"><span role="cell"><span class="marcador lote"></span>Situação de cada lote</span><span role="cell">na hora, para todos</span><span role="cell">equipe toda</span><span role="cell">celular</span></div>
+        <div class="linha" role="row" data-img="tabela-de-precos"><span role="cell"><span class="marcador lote"></span>Tabela de preços</span><span role="cell">PDF com a sua logo</span><span role="cell">corretor</span><span role="cell">WhatsApp</span></div>
+        <div class="linha" role="row" data-img="celular-lote"><span role="cell"><span class="marcador lote"></span>Simulação</span><span role="cell">entrada, parcelas, à vista</span><span role="cell">corretor</span><span role="cell">celular</span></div>
+        <div class="linha" role="row" data-img="reservas"><span role="cell"><span class="marcador lote"></span>Reservas</span><span role="cell">pedido e aprovação</span><span role="cell">corretor e escritório</span><span role="cell">os dois</span></div>
+        <div class="linha" role="row" data-img="lotes"><span role="cell"><span class="marcador lote"></span>Reajuste de preços</span><span role="cell">por %, R$ ou índice</span><span role="cell">escritório</span><span role="cell">mensal</span></div>
+      </div>
+      <div role="rowgroup">
+        <h3 class="programa__parte" role="row"><span role="columnheader">Contratos e documentos</span></h3>
+        <div class="linha" role="row" data-img="contrato"><span role="cell"><span class="marcador lote"></span>Contrato</span><span role="cell">no padrão do cartório</span><span role="cell">escritório</span><span role="cell">PDF</span></div>
+        <div class="linha" role="row" data-img="contrato"><span role="cell"><span class="marcador lote"></span>Distrato e cessão</span><span role="cell">com retenção e histórico</span><span role="cell">escritório</span><span role="cell">PDF</span></div>
+        <div class="linha" role="row" data-img="contrato"><span role="cell"><span class="marcador lote"></span>Proposta e recibo</span><span role="cell">editáveis antes de sair</span><span role="cell">equipe toda</span><span role="cell">PDF</span></div>
+      </div>
+      <div role="rowgroup">
+        <h3 class="programa__parte" role="row"><span role="columnheader">Financeiro</span></h3>
+        <div class="linha" role="row" data-img="a-receber"><span role="cell"><span class="marcador lote"></span>A receber</span><span role="cell">parcelas e outras receitas</span><span role="cell">financeiro</span><span role="cell">computador</span></div>
+        <div class="linha" role="row" data-img="cobranca"><span role="cell"><span class="marcador lote"></span>Cobrança</span><span role="cell">atraso, multa e acordo</span><span role="cell">financeiro</span><span role="cell">WhatsApp</span></div>
+        <div class="linha" role="row" data-img="a-receber"><span role="cell"><span class="marcador lote"></span>Boleto e remessa</span><span role="cell">Banco do Brasil</span><span role="cell">financeiro</span><span role="cell">CNAB 400</span></div>
+        <div class="linha" role="row" data-img="caixa"><span role="cell"><span class="marcador lote"></span>Caixa e bancos</span><span role="cell">saldo de cada conta</span><span role="cell">financeiro</span><span role="cell">computador</span></div>
+        <div class="linha" role="row" data-img="fluxo"><span role="cell"><span class="marcador lote"></span>Fluxo projetado</span><span role="cell">até 24 meses à frente</span><span role="cell">dono</span><span role="cell">computador</span></div>
+      </div>
+      <div role="rowgroup">
+        <h3 class="programa__parte" role="row"><span role="columnheader">Gestão</span></h3>
+        <div class="linha" role="row" data-img="inicio"><span role="cell"><span class="marcador lote"></span>Início</span><span role="cell">vendas, atrasos, contas</span><span role="cell">dono</span><span role="cell">todo dia</span></div>
+        <div class="linha" role="row" data-img="fluxo"><span role="cell"><span class="marcador lote"></span>Relatórios</span><span role="cell">balancete e comissões</span><span role="cell">dono</span><span role="cell">PDF e planilha</span></div>
+        <div class="linha" role="row" data-img="inicio"><span role="cell"><span class="marcador lote"></span>Permissões</span><span role="cell">cada função, a sua</span><span role="cell">dono</span><span role="cell">por pessoa</span></div>
+        <div class="linha" role="row" data-img="celular-planta"><span role="cell"><span class="marcador lote"></span>Sem internet</span><span role="cell">guarda e envia depois</span><span role="cell">equipe toda</span><span role="cell">celular</span></div>
+      </div>
+    </div>
+    <div class="previa lote" aria-hidden="true"></div>
+  </section>
+
+  <!-- A venda: do pedido à carteira, numa régua -->
+  <section class="etapas" id="venda" aria-labelledby="titulo-venda">
+    <div class="etapas__frase">
+      <h2 id="titulo-venda" data-frase>Primeiro, o corretor pede a reserva</h2>
+      <p data-detalhe>Com o cliente do lado, ele escolhe o lote na planta, simula e pede a reserva pelo celular. O lote fica laranja para toda a equipe.</p>
+    </div>
+    <div class="etapas__tela">
+      <figure>
+        <video data-video class="lote" width="390" height="844" autoplay muted loop playsinline preload="metadata" poster="img/corretor-no-celular.webp" aria-label="Gravação do Lotfly no celular do corretor: a planta com os lotes, a ficha do Lote 3 da Quadra A e a simulação mudando de 60 para 120 parcelas.">
+          <source src="img/corretor-no-celular.webm" type="video/webm"><source src="img/corretor-no-celular.mp4" type="video/mp4">
+        </video>
+        <img data-tela class="lote" hidden src="img/reservas.webp" width="1600" height="553" alt="">
+      </figure>
+    </div>
+    <div class="etapas__regua">
+      <label class="so-leitor" for="etapa">Etapa da venda</label>
+      <input class="regua" id="etapa" type="range" min="0" max="3" step="1" value="0" aria-valuetext="Pedido">
+      <div class="etapas__nomes">
+        <button type="button" data-etapa="0" aria-current="step">Pedido</button>
+        <button type="button" data-etapa="1">Aprovação</button>
+        <button type="button" data-etapa="2">Contrato</button>
+        <button type="button" data-etapa="3">Carteira</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Perguntas -->
+  <section class="perguntas" id="perguntas" aria-labelledby="titulo-perguntas">
+    <h2 id="titulo-perguntas" class="entra">Antes de começar</h2>
+    <div class="perguntas__lista">
+      <details class="pergunta lote entra" name="perguntas" open>
+        <summary>Preciso instalar alguma coisa?<span class="mais" aria-hidden="true"></span></summary>
+        <p>Não. O Lotfly abre no navegador, em app.lotfly.com.br. No celular, dá para pôr o ícone na tela inicial e usar como aplicativo.</p>
+      </details>
+      <details class="pergunta lote entra" name="perguntas" style="--n:1">
+        <summary>Consigo usar a planta que eu já tenho?<span class="mais" aria-hidden="true"></span></summary>
+        <p>Sim. Importe o PDF ou o DXF do projeto e o sistema reconhece os lotes. Sem planta, ele monta um esquema por quadra.</p>
+      </details>
+      <details class="pergunta lote entra" name="perguntas" style="--n:2">
+        <summary>Os corretores de fora também usam?<span class="mais" aria-hidden="true"></span></summary>
+        <p>Sim. Cada corretor, da equipe ou parceiro, entra com o próprio acesso, vê a planta e a tabela e pede a reserva. Quem aprova é o escritório.</p>
+      </details>
+      <details class="pergunta lote entra" name="perguntas" style="--n:3">
+        <summary>Dá para trazer as vendas antigas?<span class="mais" aria-hidden="true"></span></summary>
+        <p>Sim. Os contratos em andamento entram com as parcelas já pagas e as que faltam, e passam a ser cobrados pelo sistema.</p>
+      </details>
+      <details class="pergunta lote entra" name="perguntas">
+        <summary>De qual banco sai o boleto?<span class="mais" aria-hidden="true"></span></summary>
+        <p>Hoje, do Banco do Brasil, no padrão CNAB 400, com remessa e retorno. Outros bancos entram conforme os clientes pedem.</p>
+      </details>
+      <details class="pergunta lote entra" name="perguntas">
+        <summary>Quem vê o quê?<span class="mais" aria-hidden="true"></span></summary>
+        <p>Você decide. Administrador, financeiro e corretor têm permissões próprias, e o banco de dados confere cada uma.</p>
+      </details>
+      <details class="pergunta lote entra" name="perguntas">
+        <summary>E se a internet cair?<span class="mais" aria-hidden="true"></span></summary>
+        <p>O que foi lançado fica guardado no aparelho e é enviado quando a conexão volta.</p>
+      </details>
+      <details class="pergunta lote entra" name="perguntas">
+        <summary>Quanto custa?<span class="mais" aria-hidden="true"></span></summary>
+        <p>Depende do tamanho da operação: quantos empreendimentos e quantas pessoas usam. Na demonstração, montamos a proposta para o seu caso.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Demonstração: a primeira tela já aberta -->
+  <section class="convite" id="demonstracao" aria-labelledby="titulo-demo">
+    <div class="convite__texto">
+      <h2 id="titulo-demo" class="entra">Traga a sua planta</h2>
+      <p class="entra" style="--n:1">Na demonstração, mostramos o Lotfly com o seu loteamento. Você manda a mensagem, a gente responde e marca o horário.</p>
+    </div>
+    <form class="janela entra" style="--n:2" data-ui id="formDemo">
+      <div class="janela__cab"><span>Agendar demonstração</span></div>
+      <div class="janela__corpo">
+        <label>Seu nome<input type="text" name="nome" autocomplete="name" placeholder="Ex.: Mariana Costa"></label>
+        <label>Empresa<input type="text" name="empresa" autocomplete="organization" placeholder="Ex.: Loteadora Vale Verde"></label>
+        <fieldset class="escolha" style="border:0;margin:0">
+          <legend class="so-leitor">A empresa é</legend>
+          <input type="radio" name="tipo" id="tipoLot" value="loteadora" checked><label for="tipoLot">Loteadora</label>
+          <input type="radio" name="tipo" id="tipoInc" value="incorporadora"><label for="tipoInc">Incorporadora</label>
+        </fieldset>
+        <button class="botao lote" type="submit">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+          Chamar no WhatsApp</button>
+        <p class="janela__nota">Abre o WhatsApp com a mensagem pronta. Nada fica guardado nesta página.</p>
+      </div>
+    </form>
+  </section>
 </main>
+
+<footer class="rodape">
+  <svg class="rodape__nome" viewBox="0 0 1200 300" role="img" aria-label="Lotfly">
+    <defs>
+      <mask id="letras" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="300">
+        <rect width="1200" height="300" fill="#fff"/>
+        <g font-family="Stack Sans Text, system-ui, sans-serif" font-weight="500" font-size="150" text-anchor="middle" fill="#000">
+          <text x="96" y="268">L</text><text x="296" y="268">O</text><text x="496" y="268">T</text><text x="696" y="268">F</text><text x="896" y="268">L</text><text x="1100" y="268">Y</text>
+        </g>
+      </mask>
+    </defs>
+    <g mask="url(#letras)">
+      <rect x="0" y="0" width="192" height="300" fill="#2fbf68"/>
+      <rect x="200" y="60" width="192" height="240" fill="#f2a516"/>
+      <rect x="400" y="24" width="192" height="276" fill="#c8372f"/>
+      <rect x="600" y="104" width="192" height="196" fill="#c8d1d7"/>
+      <rect x="800" y="40" width="192" height="260" fill="#2fbf68"/>
+      <rect x="1000" y="84" width="200" height="216" fill="#e2e8ec"/>
+    </g>
+  </svg>
+  <div class="rodape__colunas">
+    <div><b>O sistema</b><a href="#planta">A planta</a><a href="#venda">A venda</a><a href="#financeiro">O financeiro</a><a href="#tudo">Tudo que vem</a></div>
+    <div><b>Dúvidas</b><a href="#perguntas">Perguntas</a><a href="#demonstracao">Demonstração</a></div>
+    <div><b>Acesso</b><a href="https://app.lotfly.com.br/">Entrar no sistema</a></div>
+    <div class="contato"><b>Contato</b><a class="js-whats" href="#demonstracao" data-msg="Olá! Quero saber mais sobre o Lotfly.">WhatsApp</a><span>As telas desta página usam dados de demonstração.</span></div>
+  </div>
+  <div class="rodape__fim"><span>© 2026 Lotfly · lotfly.com.br</span><a class="botao botao--claro lote" href="https://app.lotfly.com.br/">Entrar</a></div>
+</footer>
+
+<script src="pagina.js" defer></script>
 </body>
 </html>

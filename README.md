@@ -1,7 +1,15 @@
 # lotfly.com.br
 
-Endereço principal do Lotfly. Por enquanto leva direto para o sistema, em
-https://app.lotfly.com.br/ (repositório `lotifly`). Depois, vira a página de vendas.
+Página de vendas do Lotfly. O sistema fica em https://app.lotfly.com.br/ (repositório `lotifly`).
+
+Página estática, sem etapa de build:
+- `index.html`, `estilo.css` e `pagina.js` (simulador de parcelas, régua da venda, prévia da lista,
+  formulário que abre o WhatsApp);
+- `img/`: telas e gravação do próprio sistema, com dados de demonstração;
+- `fonts/`: Stack Sans Headline e Stack Sans Text (licença SIL Open Font License, Google Fonts).
+
+**Antes de publicar:** preencher o número do WhatsApp em `pagina.js` (constante `WHATSAPP`, só
+dígitos, com 55 e DDD). Enquanto estiver vazio, os botões levam ao formulário no fim da página.
 
 Publicado pelo GitHub Pages (Settings › Pages › Deploy from a branch › `main` / raiz), com o
 domínio no arquivo `CNAME`.
