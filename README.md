@@ -8,7 +8,7 @@ Página estática, sem etapa de build:
 - `img/`: telas e gravação do próprio sistema, com dados de demonstração;
 - `fonts/`: Stack Sans Headline e Stack Sans Text (licença SIL Open Font License, Google Fonts).
 
-**Antes de publicar:** preencher o contato em `pagina.js`: a constante `WHATSAPP` (só
+**Contato:** em `pagina.js`, a constante `WHATSAPP` (só
 dígitos, com 55 e DDD) ou, enquanto não houver WhatsApp, a constante `EMAIL`. Sem os dois, os
 botões levam ao formulário, que avisa que o contato ainda está sendo configurado.
 

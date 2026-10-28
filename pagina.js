@@ -3,7 +3,7 @@
 
 /* Contato dos pedidos de demonstração. WHATSAPP: só dígitos, com 55 e DDD (ex.: 5547999990000).
    Sem WhatsApp, usa o EMAIL. Sem os dois, os botões levam ao formulário, que avisa na própria página. */
-const WHATSAPP = '';
+const WHATSAPP = '5548988344406';
 const EMAIL = '';
 
 const brl = v => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
