@@ -104,7 +104,7 @@ const encheTrilho = r => {
   encheTrilho(r);
 })();
 
-/* ---------------------------------------------------------------- lista: prévia da tela ao lado; no celular, grupos recolhidos */
+/* ---------------------------------------------------------------- lista: prévia da tela ao lado */
 (() => {
   const moldura = document.querySelector('.previa__moldura');
   if (moldura && matchMedia('(hover: hover) and (pointer: fine)').matches) {
@@ -113,9 +113,8 @@ const encheTrilho = r => {
       if (!imgs[k]) { const i = document.createElement('img'); i.src = `img/${k}.webp`; i.alt = ''; moldura.appendChild(i); imgs[k] = i; }
       Object.values(imgs).forEach(i => i.classList.toggle('ligada', i === imgs[k]));
     };
-    document.querySelectorAll('#tudo tr[data-img]').forEach(tr => tr.addEventListener('mouseenter', () => liga(tr.dataset.img)));
+    document.querySelectorAll('#tudo li[data-img]').forEach(li => li.addEventListener('mouseenter', () => liga(li.dataset.img)));
   }
-  if (matchMedia('(max-width: 760px)').matches) document.querySelectorAll('#tudo .grupo').forEach((d, i) => { if (i) d.open = false; });
 })();
 
 /* ---------------------------------------------------------------- formulário: abre o WhatsApp ou o e-mail */
