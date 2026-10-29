@@ -120,56 +120,53 @@
   <section class="programa" id="tudo" aria-labelledby="titulo-tudo">
     <div class="programa__lista">
       <h2 id="titulo-tudo" class="programa__titulo entra">Tudo que vem no Lotfly</h2>
-      <details class="grupo" open>
-        <summary>Comercial</summary>
-        <table>
-          <thead><tr><th scope="col">O quê</th><th scope="col">Como</th><th scope="col">Quem usa</th><th scope="col">Onde</th></tr></thead>
-          <tbody>
-            <tr data-img="planta"><th scope="row">Planta do loteamento</th><td>importada do PDF ou do DXF</td><td>escritório</td><td>computador</td></tr>
-            <tr data-img="celular-planta"><th scope="row">Situação de cada lote</th><td>muda para todos na hora</td><td>equipe toda</td><td>os dois</td></tr>
-            <tr data-img="tabela-de-precos"><th scope="row">Tabela de preços</th><td>PDF com a sua logo</td><td>corretor</td><td>celular</td></tr>
-            <tr data-img="celular-lote"><th scope="row">Simulação</th><td>entrada, parcelas e à vista</td><td>corretor</td><td>celular</td></tr>
-            <tr data-img="reservas"><th scope="row">Reservas</th><td>o corretor pede, o escritório aprova</td><td>os dois</td><td>os dois</td></tr>
-            <tr data-img="lotes"><th scope="row">Reajuste de preços</th><td>por %, R$ ou índice, todo mês</td><td>escritório</td><td>computador</td></tr>
-          </tbody>
-        </table>
-      </details>
-      <details class="grupo" open>
-        <summary>Contratos e documentos</summary>
-        <table>
-          <thead><tr><th scope="col">O quê</th><th scope="col">Como</th><th scope="col">Quem usa</th><th scope="col">Onde</th></tr></thead>
-          <tbody>
-            <tr data-img="contrato"><th scope="row">Contrato</th><td>no padrão do cartório, em PDF</td><td>escritório</td><td>computador</td></tr>
-            <tr data-img="contrato"><th scope="row">Distrato e cessão</th><td>com retenção e histórico</td><td>escritório</td><td>computador</td></tr>
-            <tr data-img="contrato"><th scope="row">Proposta e recibo</th><td>editáveis antes de sair</td><td>equipe toda</td><td>os dois</td></tr>
-          </tbody>
-        </table>
-      </details>
-      <details class="grupo" open>
-        <summary>Financeiro</summary>
-        <table>
-          <thead><tr><th scope="col">O quê</th><th scope="col">Como</th><th scope="col">Quem usa</th><th scope="col">Onde</th></tr></thead>
-          <tbody>
-            <tr data-img="a-receber"><th scope="row">A receber</th><td>parcelas e outras receitas</td><td>financeiro</td><td>computador</td></tr>
-            <tr data-img="cobranca"><th scope="row">Cobrança</th><td>atraso, multa, acordo e WhatsApp</td><td>financeiro</td><td>computador</td></tr>
-            <tr data-img="a-receber"><th scope="row">Boleto e remessa</th><td>Banco do Brasil, CNAB 400</td><td>financeiro</td><td>computador</td></tr>
-            <tr data-img="caixa"><th scope="row">Caixa e bancos</th><td>saldo de cada conta</td><td>financeiro</td><td>computador</td></tr>
-            <tr data-img="fluxo"><th scope="row">Fluxo projetado</th><td>até 24 meses à frente</td><td>dono</td><td>computador</td></tr>
-          </tbody>
-        </table>
-      </details>
-      <details class="grupo" open>
-        <summary>Gestão</summary>
-        <table>
-          <thead><tr><th scope="col">O quê</th><th scope="col">Como</th><th scope="col">Quem usa</th><th scope="col">Onde</th></tr></thead>
-          <tbody>
-            <tr data-img="inicio"><th scope="row">Início</th><td>vendas, atrasos e contas do mês</td><td>dono</td><td>os dois</td></tr>
-            <tr data-img="fluxo"><th scope="row">Relatórios</th><td>balancete e comissões, PDF e planilha</td><td>dono</td><td>computador</td></tr>
-            <tr data-img="inicio"><th scope="row">Permissões</th><td>cada função vê o que deve</td><td>dono</td><td>computador</td></tr>
-            <tr data-img="celular-planta"><th scope="row">Sem internet</th><td>guarda e envia quando a conexão volta</td><td>equipe toda</td><td>celular</td></tr>
-          </tbody>
-        </table>
-      </details>
+      <div class="programa__grupos">
+      <div class="grupo">
+        <h3>Comercial</h3>
+        <ul>
+          <li data-img="planta">Planta do loteamento</li>
+          <li data-img="celular-planta">Situação de cada lote na hora</li>
+          <li data-img="tabela-de-precos">Tabela de preços em PDF</li>
+          <li data-img="celular-lote">Simulação de pagamento</li>
+          <li data-img="reservas">Reservas com aprovação</li>
+          <li data-img="lotes">Reajuste de preços</li>
+          <li data-img="celular-planta">Corretores parceiros</li>
+        </ul>
+      </div>
+      <div class="grupo">
+        <h3>Contratos e documentos</h3>
+        <ul>
+          <li data-img="contrato">Contrato no padrão do cartório</li>
+          <li data-img="contrato">Proposta</li>
+          <li data-img="contrato">Recibo</li>
+          <li data-img="contrato">Distrato</li>
+          <li data-img="contrato">Cessão de direitos</li>
+        </ul>
+      </div>
+      <div class="grupo">
+        <h3>Financeiro</h3>
+        <ul>
+          <li data-img="a-receber">Contas a receber</li>
+          <li data-img="a-receber">Correção por índice</li>
+          <li data-img="cobranca">Cobrança e acordos</li>
+          <li data-img="a-receber">Boleto e remessa bancária</li>
+          <li data-img="a-receber">Antecipação e quitação</li>
+          <li data-img="fluxo">Contas a pagar</li>
+          <li data-img="caixa">Caixa e bancos</li>
+          <li data-img="fluxo">Fluxo de caixa projetado</li>
+        </ul>
+      </div>
+      <div class="grupo">
+        <h3>Gestão</h3>
+        <ul>
+          <li data-img="inicio">Painel do dia</li>
+          <li data-img="fluxo">Relatórios</li>
+          <li data-img="inicio">Permissões por pessoa</li>
+          <li data-img="contrato">Logo da sua empresa nos documentos</li>
+          <li data-img="celular-planta">Funciona sem internet</li>
+        </ul>
+      </div>
+      </div>
     </div>
     <aside class="previa" aria-hidden="true">
       <figure class="previa__moldura lote"><img class="ligada" src="img/planta.webp" width="1600" height="1125" alt="" loading="lazy" data-chave="planta"></figure>
